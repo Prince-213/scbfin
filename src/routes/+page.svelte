@@ -58,7 +58,7 @@
             </div>
         </ul>
     </nav>
-    <main class=" w-full h-[70vh] bg-[url(krakenimages-376KN_ISplE-unsplash.jpg)] bg-[#f2f2f2] bg-left  bg-blend-multiply bg-cover flex pl-[20%] items-center ">
+    <main class=" w-full h-[70vh] bg-[url(https://i.postimg.cc/3xRsFxgx/krakenimages-376-KN-ISpl-E-unsplash.jpg)] bg-[#f2f2f2] bg-left  bg-blend-multiply bg-cover flex pl-[20%] items-center ">
         <Card />
     </main>
     <section class=" w-full">
