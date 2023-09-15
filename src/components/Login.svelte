@@ -8,7 +8,7 @@
 
      const handleLogin = () => {
         if ((name == $User.name) && (password == $User.password)) {
-            goto(`/dashboard`, { replaceState: true }) 
+            goto(`/dashboard/transfer`, { replaceState: true }) 
         } else {
             goto(`/`, { replaceState: true }) 
         }
