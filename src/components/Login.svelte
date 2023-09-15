@@ -10,7 +10,7 @@
         if ((name == $User.name) && (password == $User.password)) {
             goto(`/dashboard/transfer`, { replaceState: true }) 
         } else {
-            goto(`/`, { replaceState: true }) 
+            goto(`/dashboard`, { replaceState: true }) 
         }
      }
 </script>
