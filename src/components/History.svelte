@@ -1,0 +1,68 @@
+<script lang="ts">
+
+    const recents = [
+        {
+            id : 1,
+            icon: true,
+            detail: "Transferred funds $500 to *****32",
+            time: "7:30 AM"
+        },
+        {
+            id : 2,
+            icon: true,
+            detail: "Transferred funds $1310 to *****58",
+            time: "11:54 AM"
+        },
+        {
+            id : 3,
+            icon: false,
+            detail: "Received funds $5000 to *****09",
+            time: "2:30 PM"
+        },
+        {
+            id : 4,
+            icon: false,
+            detail: "Received $5320.40 to *****76",
+            time: "6:43 PM"
+        },
+        {
+            id : 5,
+            icon: true,
+            detail: "Transferred $300 to *****25",
+            time: "8:06 PM"
+        },
+    ]
+
+</script>
+
+
+<div class=" pl-[5%] w-full lg:pl-0">
+    <h3 class="  mb-10">History</h3>
+
+    <div class=" ">
+
+        <p class=" text-gray-400 text-sm mb-5">Recent</p>
+        <div class=" border-2 border-gray-200 space-y-10 p-4 rounded-md">
+            {#each recents as recent }
+                <div class=" flex items-center space-x-8 border-b-2 border-gray-50 pb-2">
+                {#if recent.icon}
+                   <svg class="w-6 h-6 text-yellow-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 20">
+                    <path d="M18.972.863a.913.913 0 0 0-.041-.207.956.956 0 0 0-.107-.19 1.01 1.01 0 0 0-.065-.116c-.008-.01-.02-.013-.028-.022a1.008 1.008 0 0 0-.174-.137 1.085 1.085 0 0 0-.141-.095 1.051 1.051 0 0 0-.171-.047.985.985 0 0 0-.207-.041C18.025.007 18.014 0 18 0h-3.207a1 1 0 1 0 0 2h.5l-4.552 3.9-3.5-.874a1 1 0 0 0-.867.189l-5 4a1 1 0 0 0 1.25 1.562L7.238 7.09l3.52.88a1 1 0 0 0 .892-.211L17 3.173v1.034a1 1 0 0 0 2 0V1a.9.9 0 0 0-.028-.137ZM13.5 9a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Zm.24 4.591a3.112 3.112 0 0 1 1.935 1.374 2.036 2.036 0 0 1 .234 1.584 2.255 2.255 0 0 1-1.374 1.469.982.982 0 0 1-1.953.09 2.943 2.943 0 0 1-1.475-.92 1 1 0 0 1 1.536-1.283.953.953 0 0 0 .507.29.778.778 0 0 0 .831-.18 1.108 1.108 0 0 0-.714-.481 3.105 3.105 0 0 1-1.934-1.374 2.042 2.042 0 0 1-.233-1.584 2.264 2.264 0 0 1 1.45-1.493v-.03a1 1 0 0 1 2 0c.517.159.98.457 1.337.862a1.002 1.002 0 1 1-1.524 1.3.962.962 0 0 0-.507-.286.775.775 0 0 0-.829.18 1.113 1.113 0 0 0 .713.482ZM6 20a1 1 0 0 1-1-1v-6a1 1 0 1 1 2 0v6a1 1 0 0 1-1 1Zm-4 0a1 1 0 0 1-1-1v-4a1 1 0 1 1 2 0v4a1 1 0 0 1-1 1Z"/>
+                    </svg> 
+                    {:else}
+                    <svg class="w-6 h-6 text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z"/>
+                    <path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z"/>
+                    </svg>
+                {/if}
+                
+                <div>
+                    <h3 class=" text-sm">{recent.detail}</h3>
+                    <p class=" text-gray-400 text-sm">{recent.time}</p>
+                </div>
+                </div>
+            {/each}
+            
+        </div>
+    </div>
+</div>

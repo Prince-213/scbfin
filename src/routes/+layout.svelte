@@ -2,4 +2,7 @@
 	import '../app.postcss';
 </script>
 
-<slot />
+<div class=" w-full overflow-x-hidden ">
+	<slot />
+</div>
+

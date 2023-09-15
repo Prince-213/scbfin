@@ -15,7 +15,7 @@ import Side from "../../components/Side.svelte";
           </svg>
     </button>
     
-    <div class=" w-full py-2 flex lg:pl-5 lg:justify-start justify-center mb-10">
+    <div class=" w-full py-2 bg-gray-50 flex lg:pl-5 lg:justify-start justify-center mb-5">
         <img class="w-[100px] mr-2" src="https://i.postimg.cc/NMLrkTdj/logo.png" alt="logo" />
 
     </div>

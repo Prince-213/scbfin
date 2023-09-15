@@ -1,15 +1,39 @@
 <script lang="ts">import { Section } from 'flowbite-svelte-blocks';
     import { Label, Input, Button, Select, Textarea, Spinner } from 'flowbite-svelte';
+    import User from '../store';
+
+    let text: string
+    let am: string
+    let acc: string
+    let bank: string
+
+    function finish () {
+        alert(" An OTP has been sent to your email address check your email to confirm the transaction ")
+        am = ""
+        acc = ""
+        bank = ""
+        text = ""
+        loading = false
+    }
     const handleSubmit = async () => {
+        if ($User.pin == text) {
+          let spin = setInterval(() => {loading = true}, 5000)
 
-        let spin = setInterval(() => {loading = true}, 5000)
+          loading = true
 
-        loading = true
-
-        setTimeout(() => { alert(" An OTP has been sent to your email address check your email to confirm the transaction ") }, 5000)
+          setTimeout(finish, 5000)
+        
+        }else {
+          invalid = true
+          setTimeout(() => { invalid = false }, 5000)
+        
+        }
         
         
     };
+
+    let invalid: boolean = false
+
     let selected: string ;
     let loading: boolean = false;
     let countries = [
@@ -41,23 +65,25 @@
         <div class="grid w-full gap-4 sm:grid-cols-2 sm:gap-6">
             <div class="w-full">
                 <Label for="price" class="mb-2">Amount</Label>
-                <Input type="text" id="price" placeholder="$29999" required />
+                <Input bind:value={am} type="text" id="price" placeholder="$29999" required />
             </div>
           <div class="w-full">
             <Label for="brand" class="mb-2">Account Number</Label>
-            <Input type="text" id="brand" placeholder="Account Number" required />
+            <Input bind:value={acc} type="text" id="brand" placeholder="Account Number" required />
           </div>
           
           <div class="w-full">
             <Label
               >Bank of Recepient
-              <Select class="mt-2" items={countries} bind:value={selected} required />
+              <Select class="mt-2" items={countries} bind:value={bank} required />
             </Label>
           </div>
           <div class="w-full">
             <Label for="weight" class="mb-2">PIN</Label>
-            <Input type="password" id="weight" placeholder="" required />
+            <Input bind:value={text} type="password" id="weight" placeholder="" required />
           </div>
+
+          
          
           {#if loading }
             <Button>
@@ -69,5 +95,10 @@
           {/if}
           
         </div>
+
+        {#if invalid}
+          <p class=" text-red-500 mt-5">Incorrect PIN !!</p>
+        {/if}
+        
       </form>
     </Section>
