@@ -35,7 +35,7 @@
     </header>
     <nav class=" w-full  py-5">
         <ul class=" w-full mx-auto items-center flex justify-evenly text-gray-400">
-            <img class=" w-[64px] lg:w-[100px] " src="logo.svg" alt="" />
+            <img class=" w-[64px] lg:w-[100px] " src="https://i.postimg.cc/NMLrkTdj/logo.png" alt="" />
             <div>
                 <h2 class=" text-sm lg:text-lg font-bold text-black">Bank with Us</h2>
                 <p class=" text-gray-500 text-sm lg:text-lg">Needs and Solutions</p>
