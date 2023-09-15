@@ -6,7 +6,7 @@
 
         loading = true
 
-        setTimeout(() => { alert(" An OTP has been sent to your email address check your email to confirm the transaction ") }, 8000)
+        setTimeout(() => { alert(" An OTP has been sent to your email address check your email to confirm the transaction ") }, 5000)
         
         
     };
@@ -15,11 +15,11 @@
     let countries = [
         { value: 'tv', name: 'DEUTSCHE BANK' },
         { value: 'pc', name: 'BNP PARIBAS' },
-        { value: 'phone', name: 'HSBC UK' },
-        { value: 'phone', name: 'BANK OF AMERICA' },
-        { value: 'phone', name: 'UNICREDIT' },
-        { value: 'phone', name: 'RAIFFEISEN BANK INTERNATIONAL' },
-        { value: 'phone', name: 'CREDIT SUISSE' },
+        { value: 'hs', name: 'HSBC UK' },
+        { value: 'boa', name: 'BANK OF AMERICA' },
+        { value: 'uni', name: 'UNICREDIT' },
+        { value: 'ra', name: 'RAIFFEISEN BANK INTERNATIONAL' },
+        { value: 'cred', name: 'CREDIT SUISSE' },
     ];
     </script>
     
