@@ -4,6 +4,10 @@
     import { sineIn } from 'svelte/easing';
     import User from '../store';
 	import Dash from './Dash.svelte';
+	import CurrentUser from '../user';
+
+  console.log($CurrentUser.name)
+    
     let hidden1 = true;
     let transitionParams = {
       x: -320,
@@ -12,7 +16,7 @@
     };
 
     const open = () => {
-        User.update((currentUser) => {
+        CurrentUser.update((currentUser) => {
             return {...currentUser, slide: !currentUser.slide}
         })
     }
@@ -20,10 +24,11 @@
   
 
   
-  <Drawer transitionType="fly" {transitionParams} bind:hidden={$User.slide} id="sidebar1">
+  <Drawer transitionType="fly" {transitionParams} bind:hidden={$CurrentUser.slide} id="sidebar1">
     <div class="flex items-center">
+      
       <h5 id="drawer-label" class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400">
-        <Avatar src="https://i.postimg.cc/mrfdqLv4/image.jpg" border class="mr-5 ring-green-400 dark:ring-red-300" />{$User.name}
+        <Avatar src={$CurrentUser.image} border class="mr-5 ring-green-400 dark:ring-red-300" />{$CurrentUser.name}
       </h5>
       <CloseButton on:click={open} class="mb-4 dark:text-white" />
     </div>

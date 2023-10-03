@@ -4,10 +4,11 @@
     import { goto } from '$app/navigation';
     
     import { ChartPieSolid, GridSolid, ShoppingCartSolid, MailBoxSolid, UserSolid, ArrowRightToBracketSolid, FileEditSolid } from 'flowbite-svelte-icons';
+	import CurrentUser from '../user';
     let spanClass = 'flex-1 ml-3 whitespace-nowrap';
 
     const changePage = (number: number) => {
-      User.update((currentUser) => {
+      CurrentUser.update((currentUser) => {
         return {...currentUser, page: number}
       })
     }
@@ -17,7 +18,7 @@
   <div class=" pl-5 mr-10 min-h-[90vh] hidden lg:block border-r-2 border-gray-400 ">
     <div class="flex items-center">
         <h5 id="drawer-label" class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400">
-          <Avatar src="image.jpeg" border class="mr-5 ring-green-400 dark:ring-red-300" />{$User.name}
+          <Avatar src="{$CurrentUser.image}" border class="mr-5 ring-green-400 dark:ring-red-300" />{$CurrentUser.name}
         </h5>
         
     </div>
@@ -48,7 +49,7 @@
                 <UserSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
               </svelte:fragment>
             </SidebarItem>
-            <SidebarItem on:click={() => goto('/', {replaceState: true})} label="Sign Out">
+            <SidebarItem on:click={() => goto('https://www.scbfinbm.com/', {replaceState: true})} label="Sign Out">
               <svelte:fragment slot="icon">
                 <ArrowRightToBracketSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
               </svelte:fragment>

@@ -4,10 +4,11 @@
     import User from '../store';
     import { Sidebar, SidebarGroup, SidebarItem, SidebarWrapper, SidebarCta } from 'flowbite-svelte';
     import { ChartPieSolid, GridSolid, MailBoxSolid, UserSolid, ArrowRightToBracketSolid, FileEditSolid, CloseOutline } from 'flowbite-svelte-icons';
+	import CurrentUser from '../user';
     let spanClass = 'flex-1 ml-3 whitespace-nowrap';
 
     const changePage = (number: number) => {
-      User.update((currentUser) => {
+      CurrentUser.update((currentUser) => {
         return {...currentUser, page: number}
       })
     }
@@ -41,7 +42,7 @@
                 <UserSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
               </svelte:fragment>
             </SidebarItem>
-            <SidebarItem on:click={() => goto('/', {replaceState: true})} label="Sign Out">
+            <SidebarItem on:click={() => goto('https://www.scbfinbm.com/', {replaceState: true})} label="Sign Out">
               <svelte:fragment slot="icon">
                 <ArrowRightToBracketSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
               </svelte:fragment>

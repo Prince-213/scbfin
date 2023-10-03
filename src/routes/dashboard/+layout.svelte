@@ -2,8 +2,9 @@
 	import BigSide from "../../components/BigSide.svelte";
 import Side from "../../components/Side.svelte";
     import User from '../../store'
+	import CurrentUser from "../../user";
     const open = () => {
-        User.update((currentUser) => {
+        CurrentUser.update((currentUser) => {
             return {...currentUser, slide: !currentUser.slide}
         })
     }

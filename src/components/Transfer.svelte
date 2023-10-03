@@ -1,6 +1,7 @@
 <script lang="ts">import { Section } from 'flowbite-svelte-blocks';
     import { Label, Input, Button, Select, Textarea, Spinner } from 'flowbite-svelte';
     import User from '../store';
+	import CurrentUser from '../user';
 
     let text: string
     let am: string
@@ -16,7 +17,7 @@
         loading = false
     }
     const handleSubmit = async () => {
-        if ($User.pin == text) {
+        if ($CurrentUser.pin == text) {
           let spin = setInterval(() => {loading = true}, 5000)
 
           loading = true
