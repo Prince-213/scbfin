@@ -1,5 +1,4 @@
 <script lang="ts">
-	
 	import { Section, Register } from 'flowbite-svelte-blocks';
 	import { Button, Checkbox, Label, Input } from 'flowbite-svelte';
 	import User from '../store';
@@ -9,15 +8,15 @@
 	let name = '';
 	let password = '';
 
-	$:username = '';
+	$: username = '';
 	let slide = true;
 	let page = 1;
-	$:pin = '';
-	$:image = '';
-  $:savings = '';
-  $:current = '';
+	$: pin = '';
+	$: image = '';
+	$: savings = '';
+	$: current = '';
 
-  let invalid = false;
+	$: invalid = false;
 
 	const handleLogin = async () => {
 		for (let index = 0; index < $User.length; index++) {
@@ -25,26 +24,29 @@
 				username = $User[index]['name'];
 				pin = $User[index]['pin'];
 				image = $User[index]['image'];
-        savings = $User[index]['savings'];
-        current = $User[index]['current'];
+				savings = $User[index]['savings'];
+				current = $User[index]['current'];
 
 				try {
 					CurrentUser.update((user) => {
-						return { ...user, name: username, pin: pin, image: image, savings: savings, current: current};
+						return {
+							...user,
+							name: username,
+							pin: pin,
+							image: image,
+							savings: savings,
+							current: current
+						};
 					});
 				} catch (error) {
-
-        }finally {
-          goto(`/dashboard`, { replaceState: true })
-          console.log($CurrentUser)
-        }
-			}else {
-        invalid = true
-      }
-
+				} finally {
+					goto(`/dashboard`, { replaceState: true });
+					console.log($CurrentUser);
+				}
+			} else {
+				invalid = true;
+			}
 		}
-
-		
 	};
 </script>
 
@@ -53,6 +55,10 @@
 		<svelte:fragment slot="top">
 			<img class="w-[100px] mr-2" src="logo.svg" alt="logo" />
 		</svelte:fragment>
+		{#if invalid}
+			<h3 class="text-red-500 font-semibold">Invalid name or password</h3>
+		{/if}
+
 		<div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 			<form class="flex flex-col space-y-6" on:submit|preventDefault={handleLogin}>
 				<h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Change Password</h3>

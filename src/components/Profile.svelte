@@ -1,4 +1,5 @@
 <script>
+	import CurrentUser from '../user';
 	import Pie from './Pie.svelte';
 </script>
 
@@ -15,7 +16,7 @@
 			<hr />
 			<div class=" py-5 w-full flex justify-between">
 				<p>Saving balance</p>
-				<p>$141,435</p>
+				<p>${$CurrentUser.savings}</p>
 			</div>
 		</div>
 		<br />
@@ -25,7 +26,7 @@
 			<hr />
 			<div class=" py-5 w-full flex justify-between">
 				<p>Current balance</p>
-				<p>$727, 432</p>
+				<p>${$CurrentUser.current}</p>
 			</div>
 		</div>
 	</div>

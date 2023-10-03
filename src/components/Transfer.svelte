@@ -52,14 +52,14 @@
         
             <div class=" space-x-2 flex">
                 <p>Saving balance:</p>
-                <p>$141,435</p>
+                <p>{$CurrentUser.savings}</p>
             </div>
         
         <br>
         
             <div class=" space-x-2 flex">
                 <p>Current balance:</p>
-                <p>$727, 432</p>
+                <p>{$CurrentUser.current}</p>
             </div>
        <br>
       <form class=" w-[30em]" on:submit|preventDefault={handleSubmit}>
