@@ -56,7 +56,7 @@ let User = writable([
     pin: "9765",
     image: "https://i.ibb.co/VDTf02y/sandra-bullock.jpg",
     savings: "150367",
-    current: "820456",
+    current: "50,780,456",
     history: [
       {
         id: 1,
