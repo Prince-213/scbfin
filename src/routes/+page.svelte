@@ -9,7 +9,7 @@
 </script>
 
 <div>
-	<header class=" bg-gray-200 flex w-full mx-auto justify-between px-[5%] lg:px-[10%] items-center">
+	<header class=" bg-gray-200 flex w-full mx-auto justify-between px-1 lg:px-[10%] items-center">
 		<div class="flex space-x-3">
 			<h2 class="font-bold text-sm lg:text-lg">PERSONAL</h2>
 			<h2 class=" text-gray-400 text-sm lg:text-lg">PRIVATE</h2>

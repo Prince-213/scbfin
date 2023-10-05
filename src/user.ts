@@ -7,7 +7,9 @@ let CurrentUser = writable({
     pin: "",
     image: "",
     savings: '',
-    current: ''
+    current: '',
+    isLoggedIn: false,
+    history: []
   });
 
   export default CurrentUser

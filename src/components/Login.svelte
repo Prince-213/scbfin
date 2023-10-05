@@ -1,47 +1,79 @@
 <script lang="ts">
 	import { Section, Register } from 'flowbite-svelte-blocks';
-	import { Button, Checkbox, Label, Input } from 'flowbite-svelte';
+	import { Button, Checkbox, Label, Input, Spinner } from 'flowbite-svelte';
 	import User from '../store';
 	import { goto } from '$app/navigation';
 	import CurrentUser from '../user';
+	import { MoonSolid } from 'flowbite-svelte-icons';
+
+	type Recents = {
+		id: number;
+		icon: boolean;
+		detail: string;
+		time: string;
+	}[];
 
 	let name = '';
 	let password = '';
 
 	$: username = '';
+	let history: Recents = [];
 	let slide = true;
 	let page = 1;
 	$: pin = '';
 	$: image = '';
 	$: savings = '';
 	$: current = '';
+	$: isLoading = false;
 
-	$: invalid = false;
+	type Users = {
+		name: string;
+		slide: boolean;
+		page: number,
+		pin: string;
+		image: string;
+		savings: string;
+		current: string;
+		isLoggedIn: boolean;
+		history: Recents;
+	};
 
-	const handleLogin = async () => {
+	let invalid = false;
+
+	const handleLogin = async (e: any) => {
+		e.preventDefault;
 		for (let index = 0; index < $User.length; index++) {
 			if ($User[index]['name'] == name && $User[index]['password'] == password) {
-				username = $User[index]['name'];
+				username = $User[index]['fullname'];
 				pin = $User[index]['pin'];
 				image = $User[index]['image'];
 				savings = $User[index]['savings'];
 				current = $User[index]['current'];
+				history = $User[index]['history'];
+
+				invalid = false;
 
 				try {
-					CurrentUser.update((user) => {
+					CurrentUser.update((user): any => {
 						return {
 							...user,
 							name: username,
 							pin: pin,
 							image: image,
 							savings: savings,
-							current: current
+							current: current,
+							history: history
 						};
 					});
+
+					isLoading = true;
+
+					setTimeout(function () {
+						goto(`/dashboard`, { replaceState: true });
+						console.log($CurrentUser);
+					}, 1500);
 				} catch (error) {
 				} finally {
-					goto(`/dashboard`, { replaceState: true });
-					console.log($CurrentUser);
 				}
 			} else {
 				invalid = true;
@@ -88,7 +120,15 @@
 						>Forgot password?</a
 					>
 				</div>
-				<Button type="submit" class="w-full1">Sign in</Button>
+
+				{#if isLoading}
+					<Button>
+						<Spinner class="mr-3" size="4" color="white" />
+					</Button>
+				{:else}
+					<Button type="submit" class="w-full1">Sign in</Button>
+				{/if}
+
 				<p class="text-sm font-light text-gray-500 dark:text-gray-400">
 					Don’t have an account yet? <a
 						href="/sign"
